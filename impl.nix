@@ -34,11 +34,14 @@ pkgs.mkShell rec {
         ncurses5
         binutils
         gitRepo gnupg autoconf curl
-        procps gnumake util-linux m4 gperf unzip
+        procps gnumake util-linux m4 
+        gperf gperftools 
+        unzip
         libGLU libGL
         glib
       ];
     LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
     CUDA_PATH = pkgs.lib.optionalString (variant == "CUDA") pkgs.cudatoolkit;
     EXTRA_LDFLAGS = pkgs.lib.optionalString (variant == "CUDA") "-L${pkgs.linuxPackages.nvidia_x11}/lib";
+    LD_PRELOAD = "${pkgs.gperftools}/lib/libtcmalloc.so.4";
 }
