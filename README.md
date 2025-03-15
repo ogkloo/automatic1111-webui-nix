@@ -3,6 +3,10 @@
 This is literally just a `shell.nix`/`flake.nix` for stable-diffusion-webui that also enables CUDA/ROCm on NixOS.
 This supports NVIDIA GPUs (using CUDA), AMD GPUs (using ROCm), and CPU compute (including Apple silicon).
 
+## What is this fork
+
+The virchau13 repo hasn't merged a few PRs needed for tcmalloc to work. This fork has those changes.
+
 ## Usage
 
 ### Setup
